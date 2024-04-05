@@ -10,4 +10,5 @@
   <Lightswitch />
   <Button href="/login">Login</Button>
   <Button href="/user">User</Button>
+  <Button href="/logout">logout</Button>
 </main>
