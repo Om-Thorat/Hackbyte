@@ -3,10 +3,16 @@ from datetime import datetime
 import json
 from os import environ as env
 from urllib.parse import quote_plus, urlencode
-
+from Db.test import test_db
+from Db.getPosts import getPosts
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, redirect, render_template, session, url_for
+from pymongo.mongo_client import MongoClient
+from dotenv import find_dotenv, load_dotenv
+from os import environ as env
+from bson import json_util
+
 
 ENV_FILE = find_dotenv()
 if ENV_FILE:
@@ -28,10 +34,20 @@ oauth.register(
     server_metadata_url=f'https://{env.get("AUTH0_DOMAIN")}/.well-known/openid-configuration'
 )
 
+uri = env.get('MONGO_URI');
+print(uri)
+client = MongoClient(uri);
+
 # To expose the main page
 @app.route('/')
 def root():
+    test_db()
     return send_from_directory('./client/dist', 'index.html')
+
+@app.route('/posts')
+def posts():
+    posts = getPosts(client)
+    return json.loads(json_util.dumps(posts))
 
 @app.route('/user')
 def user():
