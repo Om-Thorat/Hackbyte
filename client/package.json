@@ -29,6 +29,7 @@
     "bits-ui": "^0.21.2",
     "clsx": "^2.1.0",
     "cmdk": "^1.0.0",
+    "cmdk-sv": "^0.0.17",
     "mode-watcher": "^0.3.0",
     "svelte-radix": "^1.1.0",
     "tailwind-merge": "^2.2.2",
