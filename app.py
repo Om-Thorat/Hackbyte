@@ -35,12 +35,26 @@ def root():
 
 @app.route('/user')
 def user():
-    return session.get('user')
+    return session.get('user') or 'No'
 
 @app.route("/login")
 def login():
     return oauth.auth0.authorize_redirect(
         redirect_uri=url_for("callback", _external=True)
+    )
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(
+        "https://" + env.get("AUTH0_DOMAIN")
+        + "/v2/logout?"
+        + urlencode(
+            {
+                "client_id": env.get("AUTH0_CLIENT_ID"),
+            },
+            quote_via=quote_plus,
+        )
     )
 
 @app.route("/callback", methods=["GET", "POST"])
