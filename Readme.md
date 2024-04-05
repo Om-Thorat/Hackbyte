@@ -1,16 +1,20 @@
-# Flask Svelte Template
+# CtrlCrew
 
-This is a template to use Flask with Svelte while using vite to build 👀
+This is a web-based application designed to provide employees with a safe and anonymous space to discuss various topics, share insights, within their organization and across different companies. The platform offers both global and company-specific discussion channels, fostering open communication and collaboration while ensuring user privacy and data security.
 
-## To run locally
 
-* Clone the repository
-* `cd Flask-svelte-template`
-* `cd client`
-* `npm install`
-* `npm run autobuild`
-* Run `server.py`
+### Features:
 
-**Your app should start on `localhost:5000`**
+* Secure and Anonymous Discussions
+* Company-specific Discussion Channels
+* Verification via Company Email
+* Moderation and Governance
+* User Engagement and Feedback
 
-> With 💖 by Om
+### Tech Stack:
+
+*  Front-End: Svelte
+* Back-End: Flask
+* DB: MongoDB Atlas
+* Auth: Auth0
+    
