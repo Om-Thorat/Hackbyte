@@ -1,2 +1,2 @@
 .env
-Db/__pycache__/
+Db/__pycache__/*

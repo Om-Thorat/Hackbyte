@@ -3,8 +3,6 @@ from datetime import datetime
 import json
 from os import environ as env
 from urllib.parse import quote_plus, urlencode
-from Db.test import test_db
-from Db.getPosts import getPosts
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, redirect, render_template, session, url_for
@@ -12,6 +10,9 @@ from pymongo.mongo_client import MongoClient
 from dotenv import find_dotenv, load_dotenv
 from os import environ as env
 from bson import json_util
+
+from Db.Posts import getPosts
+from Db.Organisations import getOrganisations
 
 
 ENV_FILE = find_dotenv()
@@ -41,13 +42,18 @@ client = MongoClient(uri);
 # To expose the main page
 @app.route('/')
 def root():
-    test_db()
+    # test_db(client)
     return send_from_directory('./client/dist', 'index.html')
 
 @app.route('/posts')
 def posts():
-    posts = getPosts(client)
+    posts = getPosts(client.hackdb)
     return json.loads(json_util.dumps(posts))
+
+@app.route('/AllOrganisations')
+def Organisations():
+    Organisations = getOrganisations(client.hackdb)
+    return json.loads(json_util.dumps(Organisations))
 
 @app.route('/user')
 def user():

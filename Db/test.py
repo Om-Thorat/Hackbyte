@@ -1,7 +1,4 @@
-
-
-
-def test_db():
+def test_db(client):
     try:
         client.admin.command('ping')
         print("Pinged your deployment. You successfully connected to MongoDB!")

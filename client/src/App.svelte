@@ -1,12 +1,17 @@
 <script lang="ts">
   import Isloggedin from "$lib/Isloggedin.svelte";
   import Navbar from "$lib/Navbar.svelte";
-  import Postpage from "$lib/Postpage.Svelte";
+  import Postpage from "$lib/Postpage.svelte";
+  import Search from "$lib/Search.svelte";
   import { ModeWatcher } from "mode-watcher";
   
 </script>
 
-<Navbar />
 <ModeWatcher />
 <!-- <Isloggedin /> -->
-<Postpage />
+
+<main class="flex flex-col h-[100svh] w-screen justify-center items-center gap-4">
+<!-- <Navbar /> -->
+<Search />
+<!-- <Postpage /> -->
+</main>

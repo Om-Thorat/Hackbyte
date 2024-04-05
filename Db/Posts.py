@@ -1,7 +1,4 @@
-import json
-
-def getPosts(client):
-    db = client.hackdb
+def getPosts(db):
     coll = db.Posts
     posts = []
     for i in coll.find():

@@ -1,16 +1,27 @@
 <script lang="ts">
     import * as Command from "$lib/components/ui/command";
+    let inp = "";
+    let Orgs:Array<any> = [];
+    let Sl:Array<any> = [];
+    async function getOrgs() {
+        let r = await fetch("/AllOrganisations")
+        Orgs = await r.json();
+        Sl = Orgs;
+        console.log(Orgs);
+    }
+    getOrgs();
+    $: Sl = Orgs.filter((o) => o.organisation.toLowerCase().includes(inp.toLowerCase()));
   </script>
    
   <Command.Root class="w-1/3 h-1/4 outline outline-white">
-    <Command.Input placeholder="Type a command or search..." />
+    <Command.Input value={inp} placeholder="Type a command or search..." />
     <Command.List>
       <Command.Empty>No results found.</Command.Empty>
       <Command.Separator />
       <Command.Group heading="Companies">
-        <Command.Item>Profile</Command.Item>
-        <Command.Item>Billing</Command.Item>
-        <Command.Item>Settings</Command.Item>
+        {#each Sl as elem}
+            <Command.Item>{elem.organisation}</Command.Item>
+        {/each}
       </Command.Group>
     </Command.List>
   </Command.Root>
