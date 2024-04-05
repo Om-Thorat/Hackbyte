@@ -35,7 +35,7 @@ def root():
 
 @app.route('/user')
 def user():
-    return session.get('user')
+    return session.get('user') or 'No'
 
 @app.route("/login")
 def login():
