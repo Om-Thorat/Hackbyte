@@ -1,12 +1,12 @@
 <script lang="ts">
   import Isloggedin from "$lib/Isloggedin.svelte";
-  import { ModeWatcher } from "mode-watcher";
   import Navbar from "$lib/Navbar.svelte";
+  import Postpage from "$lib/Postpage.Svelte";
+  import { ModeWatcher } from "mode-watcher";
+  
 </script>
+
 <Navbar />
 <ModeWatcher />
 <!-- <Isloggedin /> -->
-
-<main class="min-h-[100svh] w-screen bg-background  gap-5">
- 
-</main>
+<Postpage />
