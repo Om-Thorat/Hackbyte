@@ -19,6 +19,8 @@
     }
   }
   onMount(Getuser);
+
+ 
 </script>
 
 <div
@@ -76,7 +78,11 @@
     class=" w-[100%] h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 my-4"
   ></div>
   <div class="flex flex-col gap-3 align-middle items-left justify-between">
-    <Button href="/login">Login</Button>
+    {#if Org !== "None"}
+      <Button href="/login" class="hidden">Login</Button>
+    {:else}
+      <Button href="/login">Login</Button>
+    {/if}
     <Button href="/user">User</Button>
     <Button href="/logout">Logout</Button>
   </div>
