@@ -9,7 +9,13 @@ if ENV_FILE:
 
 genai.configure(api_key=env.get("GEMINI_KEY"))
 
-model = genai.GenerativeModel('gemini-pro')
+safety_settings = [
+    {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
+    {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
+    {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_NONE"},
+    {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"}
+]
+model = genai.GenerativeModel('gemini-pro',safety_settings=safety_settings)
 
 def getKeywords(data):
     resp = model.generate_content(data+" give a list of keywords from the post which can be used as tags. give the keywords separated by a comma")

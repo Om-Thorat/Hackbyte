@@ -1,6 +1,6 @@
 <script>
     import Postcard from "./Postcard.svelte";
-
+    import { Post,state } from "./store";
     let posts = [];
 
     async function fetchPosts() {
@@ -12,13 +12,20 @@
         }
     }
 
+    function Inpost(p){
+        Post.set(p);
+        state.set("seepost");
+    }
+
     fetchPosts();
 </script>
 
 <!-- <Navbar /> -->
 <div class="w-[45svw] h-[80svh] overflow-y-scroll overflow-hidden flex justify-start gap-3 flex-col noScroll">
     {#each posts as post}
-        <Postcard {post} />
+    <div on:click={()=>{Inpost(post)}} class="contents">
+        <Postcard  {post} />
+    </div>
     {/each}
 </div>
 

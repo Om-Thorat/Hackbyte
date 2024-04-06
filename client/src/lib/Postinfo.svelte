@@ -6,6 +6,13 @@
     import { Button } from "$lib/components/ui/button/index.js";
     import { Textarea } from "$lib/components/ui/textarea/index.js";
     import Mostlikes from "./Mostlikes.svelte";
+
+    let post = {}
+    import { Post } from "./store";
+
+    Post.subscribe((e) => {
+        post = e;
+    });
 </script>
 
 
@@ -13,14 +20,10 @@
     <Card.Root class="border-2 h-[75svh] ">
     <div>
     <CardHeader >
-        <h1 class="text-4xl">Join the Amazon Conversation</h1>
+        <h1 class="text-4xl">{post.title}</h1>
     </CardHeader>
     <Card.Content class='text-lg'>
-        <p>Are you an Amazon enthusiast? Whether you're a seasoned Prime member, an avid Kindle reader, or just someone who loves to shop, this is the place for you. Join us to discuss all things Amazon-related - from the latest deals and products to tips and tricks for making the most out of your Amazon experience.
-
-            Feel free to start new threads, ask questions, share your favorite Amazon finds, or even vent about any issues you've encountered. Let's build a vibrant community where we can connect, learn, and have fun together!
-            
-            To get started, why not introduce yourself and share what you love most about Amazon? Happy chatting!</p>
+        <p>{post.text}</p>
     </Card.Content>
     </div>
     <Card.Footer class="gap-7 flex flex-col">

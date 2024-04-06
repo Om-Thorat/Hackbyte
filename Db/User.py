@@ -16,8 +16,8 @@ def InsertUser(user,db):
     hashed = hashlib.sha256(pas.encode("utf-8")).hexdigest()
     # print(hashed)
     Orgs = db.Organisations
-    res = Orgs.find({"organisation": user['userinfo']['email'].split('@')[1].split('.')[0]});
-    if(res.count() > 0):
+    res = list(Orgs.find({"organisation": user['userinfo']['email'].split('@')[1].split('.')[0]}));
+    if(len(res) > 0):
         return
     else:
         NewOrg = {
