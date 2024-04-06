@@ -7,6 +7,8 @@
   import Button from "$lib/components/ui/button/button.svelte";
   import { ModeWatcher } from "mode-watcher";
   import Sidebar from  "$lib/Sidebar.svelte";
+    import Mostactivecompany from "$lib/Mostactivecompany.svelte";
+    import Topratedcompany from "$lib/Topratedcompany.svelte";
 </script>
 
 <ModeWatcher />
@@ -17,11 +19,7 @@
     <Postpage />
   </div>
   <div class="bg-background h-[100svh] w-[20%] flex flex-col justify-center items-center"><span>hellu</span>
-      <div class=" h-[40svh] w-[70%] m-3 ">
-          <h1>Some Leaderboard Title</h1>
-      </div>
-      <div class=" h-[40svh] w-[70%] m-3 ">
-          <h1>Some Leaderboard Title</h1>
-      </div>
+      <Mostactivecompany />
+      <Topratedcompany />
   </div>
 </div>
