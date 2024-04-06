@@ -8,3 +8,5 @@ def InsertUser(user,db):
         "lastrated": 0
     }
     coll.insert_one(NewUser)
+
+
