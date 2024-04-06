@@ -13,6 +13,7 @@
   import Review from "$lib/Review.svelte";
   let Lstate = "Home"
   import {state} from "$lib/store";
+  import Postinfo from "$lib/Postinfo.svelte";
 
   state.subscribe((e)=>{Lstate=e});
 </script>
@@ -24,6 +25,8 @@
     <Search />
     {#if Lstate === "Home"}
       <Postpage />
+    {:else if Lstate === "seepost"}
+      <Postinfo />
     {:else if Lstate === "post"}
         <Makepost />
     {/if}

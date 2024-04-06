@@ -15,6 +15,7 @@ import certifi
 from Db.Posts import getPosts,InsertPost
 from Db.Organisations import getOrganisations
 from Db.User import InsertUser
+from Db.Ai import getKeywords,getsimilarCompanies,getsimilarTags
 from flask import request
 
 
@@ -82,10 +83,12 @@ def addpost():
     body = request.args.get("body")
     Ptype = request.args.get("type")
     tags = request.args.get("tags")
+    tags = list(set(tags.split(',') + getKeywords(body)));
     
-    InsertPost(client.hackdb, title, body, tags, Ptype ,session.get('user'))
+    InsertPost(client.hackdb, title, body, ','.join(tags), Ptype ,session.get('user'))
     
     return "Post added successfully"
+
 
 @app.route("/logout")
 def logout():
