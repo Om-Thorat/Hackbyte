@@ -13,7 +13,7 @@
     $: Sl = Orgs.filter((o) => o.organisation.toLowerCase().includes(inp.toLowerCase()));
   </script>
    
-  <Command.Root class="w-1/3 h-1/4 outline outline-white">
+  <Command.Root class="w-[45vw] border-2 border-white rounded-lg">
     <Command.Input value={inp} placeholder="Type a command or search..." />
     <Command.List>
       <Command.Empty>No results found.</Command.Empty>

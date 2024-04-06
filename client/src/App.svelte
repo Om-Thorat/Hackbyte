@@ -9,11 +9,19 @@
 </script>
 
 <ModeWatcher />
-<!-- <Isloggedin /> -->
+<div class="h-[100svh] w-[100svw] bg-background flex items-center justify-center">
+  <div class="bg-background h-[100svh] w-[20%]"><span>hellu</span></div>
+  <div class=" bg-slate-500 p-10 mt-28 w-[60%] gap-10 rounded-sm flex flex-col justify-start items-center">
+    <Search />
+    <Postpage />
+  </div>
+  <div class="bg-background h-[100svh] w-[20%] flex flex-col justify-center items-center"><span>hellu</span>
+      <div class=" h-[40svh] w-[70%] m-3 ">
+          <h1>Some Leaderboard Title</h1>
+      </div>
+      <div class=" h-[40svh] w-[70%] m-3 ">
+          <h1>Some Leaderboard Title</h1>
+      </div>
+  </div>
 
-<main class="flex flex-col h-[100svh] w-screen justify-center items-center gap-4">
-<!-- <Navbar /> -->
-<!-- <Search /> -->
-<Postpage />
-<!-- <Postpage /> -->
-</main>
+</div>

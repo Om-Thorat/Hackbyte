@@ -13,6 +13,7 @@ from bson import json_util
 
 from Db.Posts import getPosts
 from Db.Organisations import getOrganisations
+from Db.User import InsertUser
 
 
 ENV_FILE = find_dotenv()
@@ -57,6 +58,11 @@ def Organisations():
 
 @app.route('/user')
 def user():
+    if(session.get('user')):
+        # call a function to get user data
+        # print(session.get('user'))
+        InsertUser(session.get('user'),client.hackdb)
+        
     return session.get('user') or 'No'
 
 @app.route("/login")
