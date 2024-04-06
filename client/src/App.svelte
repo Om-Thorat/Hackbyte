@@ -46,7 +46,7 @@
     <Separator class="bg-slate-300" />
     <div class="flex flex-col gap-12 items-center">
     <div class="hometab h-8 rounded flex items-center">
-      <Button variant="outline" href="/" class="rounded-full border-cyan-50 border-2 p-6 text-xl font-bold text-center">
+      <Button variant="outline" href="/" class="rounded-full border-cyan-50 border-2 p-6 text-xl font-bold text-center" on:click={() => state.set("Home")}>
       Home</Button>
     </div>
     <div class="hometab h-8 text-center rounded">
@@ -92,9 +92,13 @@
     class=" w-[100%] h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 my-4"
   ></div>
   <div class="flex flex-col gap-3 align-middle items-left justify-between">
-    <Button href="/login">Login</Button>
-    <Button href="/user">User</Button>
-    <Button href="/logout">Logout</Button>
+    {#if Org !== "None"}
+      <Button href="/login" class="hidden">Login</Button>
+      <Button href="/logout">Logout</Button>
+    {:else}
+      <Button href="/login">Login</Button>
+      <Button href="/logout" class="hidden">Logout</Button>
+    {/if}
   </div>
 </div>
   
