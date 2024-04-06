@@ -125,5 +125,5 @@ def assets(path):
 def gettime():
     return str(datetime.now().strftime("%H:%M:%S"))
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)
