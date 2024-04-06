@@ -1,11 +1,15 @@
 <script>
     import Search from "./Search.svelte";
+    import { Button } from "$lib/components/ui/button/index.js";
 
 
 </script>
 
 <div class="h-[100svh] w-[100svw] bg-background flex items-center justify-center ">
-    <div class="bg-background h-[100svh] w-[20%]"><span>hellu</span></div>
+    <div class="bg-background h-[100svh] w-[20%]">
+         <button href="/login">Login</button>
+         
+    </div>
     <div class=" bg-gray-800 h-[95svh] w-[60%] rounded-sm m-1">
         <Search />
     </div>
