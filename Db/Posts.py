@@ -18,6 +18,15 @@ def getPosts(db,user):
             posts.append(i)
         return posts
 
+def getOrgPosts(db,user):
+    coll = db.Posts
+    posts = []
+    for i in coll.aggregate([
+        { "$match": { "type": org } },
+        { "$sort": { "likes": -1 } }
+    ]):
+        posts.append(i)
+    return posts
 
 
 def InsertPost(db,title,body,tags,type,user):
@@ -32,3 +41,23 @@ def InsertPost(db,title,body,tags,type,user):
         "time": time.time()*1000,
         "organisation": user['userinfo']['email'].split('@')[1].split('.')[0]
     })
+
+def searchPost(db,q):
+    coll = db.Posts
+    posts = []
+    for i in coll.aggregate([
+        {
+            "$search": {
+                "text": {
+                    "query": q,
+                    "path": ["text",
+                             "title",
+                             "organisation"],
+                    "fuzzy": {}
+                }
+            }
+        }
+    ]):
+        posts.append(i)
+    print(posts)
+    return posts

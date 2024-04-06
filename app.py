@@ -12,7 +12,7 @@ from os import environ as env
 from bson import json_util
 import certifi
 
-from Db.Posts import getPosts,InsertPost
+from Db.Posts import getPosts,InsertPost,searchPost
 from Db.Organisations import getOrganisations
 from Db.User import InsertUser
 from Db.Ai import getKeywords,getsimilarCompanies,getsimilarTags
@@ -76,6 +76,11 @@ def login():
         redirect_uri=url_for("callback", _external=True)
     )
 
+@app.route("/search", methods=["GET"])
+def search():
+    q = request.args.get("q")
+    posts = searchPost(client.hackdb,q)
+    return json.loads(json_util.dumps(posts))
 
 @app.route("/addpost", methods=["GET"])
 def addpost():
