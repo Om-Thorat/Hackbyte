@@ -31,8 +31,10 @@
     <Separator class="bg-slate-300" />
     <div class="flex flex-col gap-12 items-center">
     <div class="hometab h-8 rounded flex items-center">
-      <Button variant="outline" href="/" class="rounded-full border-cyan-50 border-2 p-6 text-xl font-bold text-center">
-      Home</Button>
+      <Button variant="outline" class="rounded-full border-cyan-50 border-2 p-6 text-xl font-bold text-center" on:click={() => state.set("Home")}>
+        Home
+      </Button>
+    
     </div>
     <div class="hometab h-8 text-center rounded">
       <Button variant="outline" href="/" class="rounded-full border-cyan-50 border-2 p-6 font-bold text-xl text-center">{Org.toUpperCase()}™</Button>
