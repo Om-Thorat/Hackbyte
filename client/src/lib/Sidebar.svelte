@@ -3,7 +3,7 @@
     import Badge from "$lib/components/ui/badge/badge.svelte";
     import * as Accordion from "$lib/components/ui/accordion";
     import { onMount } from "svelte";
-    import { SOrg } from "$lib/store";
+    import { SOrg,state } from "$lib/store";
     let Org = "None"
     async function Getuser() {
         const response = await fetch("/user");
@@ -30,6 +30,7 @@
     <div class="company h-8 w-[100%] text-center rounded "> 
         <a href="/" class="text-3xl text-center">{Org.toUpperCase()}™</a>
     </div>
+    <Button on:click={()=>state.set("post")}>Post</Button>
      <div class="explore"></div><Badge variant="outline" class ="text-2xl">Explore Tags</Badge>
     <div class="flex flex-col gap-1">
         <div class="flex gap-1">  

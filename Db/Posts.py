@@ -15,13 +15,15 @@ def getPosts(db,user):
 
 
 
-def InsertPost(db,title,body,tags,type):
+def InsertPost(db,title,body,tags,type,user):
     coll = db.Posts
+    # print(time.time())
     coll.insert({
         "text": body,
         "title": title,
-        "tags": tags.split("-"),
+        "tags": tags.split("%"),
         "type":type,
         "likes": 0,
-        "time": time.time()
+        "time": time.time()*1000,
+        "organisation": user['userinfo']['email'].split('@')[1].split('.')[0]
     })

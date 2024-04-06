@@ -12,9 +12,10 @@ from os import environ as env
 from bson import json_util
 import certifi
 
-from Db.Posts import getPosts
+from Db.Posts import getPosts,InsertPost
 from Db.Organisations import getOrganisations
 from Db.User import InsertUser
+from flask import request
 
 
 ENV_FILE = find_dotenv()
@@ -73,6 +74,18 @@ def login():
     return oauth.auth0.authorize_redirect(
         redirect_uri=url_for("callback", _external=True)
     )
+
+
+@app.route("/addpost", methods=["GET"])
+def addpost():
+    title = request.args.get("title")
+    body = request.args.get("body")
+    Ptype = request.args.get("type")
+    tags = request.args.get("tags")
+    
+    InsertPost(client.hackdb, title, body, tags, Ptype ,session.get('user'))
+    
+    return "Post added successfully"
 
 @app.route("/logout")
 def logout():
