@@ -80,11 +80,13 @@
   <div class="flex flex-col gap-3 align-middle items-left justify-between">
     {#if Org !== "None"}
       <Button href="/login" class="hidden">Login</Button>
+      <Button href="/logout">Logout</Button>
     {:else}
       <Button href="/login">Login</Button>
+      <Button href="/logout" class="hidden">Logout</Button>
     {/if}
-    <Button href="/user">User</Button>
-    <Button href="/logout">Logout</Button>
+    <!-- <Button href="/user">User</Button> -->
+    
   </div>
 </div>
 
