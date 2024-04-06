@@ -2,7 +2,7 @@
     import Badge from "./components/ui/badge/badge.svelte";
 </script>
 
-<div class=" h-[40svh] w-[75%] m-3 border rounded-sm gap-2 flex flex-col">
+<div class=" h-[40svh] w-[82%] m-3 border rounded-sm gap-2 flex flex-col">
     <div><h1 class="m-2">Most Active Companies</h1></div>
     <div class="flex justify-between items-center">
       <Badge class="text-base mx-2">Google</Badge>
