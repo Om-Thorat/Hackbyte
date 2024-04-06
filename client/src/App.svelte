@@ -10,7 +10,7 @@
   import Mostactivecompany from "$lib/Mostactivecompany.svelte";
   import Topratedcompany from "$lib/Topratedcompany.svelte";
   import Makepost from "$lib/Makepost.svelte";
-
+  import Review from "$lib/Review.svelte";
   let Lstate = "Home"
   import {state} from "$lib/store";
 
@@ -33,3 +33,4 @@
     <Topratedcompany />
   </div>
 </div>
+<Review /> 
