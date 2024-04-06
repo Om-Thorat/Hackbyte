@@ -16,6 +16,7 @@
     fetchPosts();
 </script>
 
+<!-- <Navbar /> -->
 <div class="w-[45svw] h-[100svh] flex justify-center my-60 gap-3 flex-col">
     {#each posts as post}
         <Postcard {post} />
