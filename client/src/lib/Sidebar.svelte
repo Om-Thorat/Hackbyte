@@ -24,7 +24,7 @@
 </script>
 
 <div
-  class="bg-background h-screen w-[20%] flex flex-col py-8 justify-end ml-5 noScroll"
+  class="bg-background md:hidden h-screen w-[100%] flex-col py-8 justify-center items-center ml-5 noScroll"
 >
   <div class="flex flex-col w-[100%] h-3/4 gap-12 align-center items-center">
     <img alt="Classified logo" src="/Classified.svg" class="scale-150" />

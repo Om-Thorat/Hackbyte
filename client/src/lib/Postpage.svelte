@@ -21,7 +21,7 @@
 </script>
 
 <!-- <Navbar /> -->
-<div class="w-[45svw] h-[80svh] overflow-y-scroll overflow-hidden flex justify-start gap-3 flex-col noScroll">
+<div class=" w-[70svw] md:w-[45svw]  h-[80svh] overflow-y-scroll overflow-hidden flex justify-start gap-3 flex-col noScroll">
     {#each posts as post}
     <div on:click={()=>{Inpost(post)}} class="contents">
         <Postcard  {post} />

@@ -28,7 +28,7 @@
     </div>
     <Card.Footer class="gap-7 flex flex-col">
         <div class="flex justify-start gap-3">
-            <button><img src="./heartunfilled.png" alt="" class="h-[3svh] w-[2svw] "></button>
+            <button><img src="./heartunfilled.png" alt="" class="h-[3svh] w-[3.5svw] md:w-[2svw] "></button>
         </div>     
             <div class="grid w-full gap-2">
             <Textarea placeholder="Type your comment here." />
