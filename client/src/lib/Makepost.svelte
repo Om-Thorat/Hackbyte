@@ -1,31 +1,48 @@
 <script lang="ts">
-    import * as Form from "$lib/components/ui/form";
-    import { Input } from "$lib/components/ui/input";
-    import { formSchema, type FormSchema } from "./schema";
-    import {
-      type SuperValidated,
-      type Infer,
-      superForm,
-    } from "sveltekit-superforms";
-    import { zodClient } from "sveltekit-superforms/adapters";
-   
-    export let data: SuperValidated<Infer<FormSchema>>;
-   
-    const form = superForm(data, {
-      validators: zodClient(formSchema),
-    });
-   
-    const { form: formData, enhance } = form;
-  </script>
-   
-  <form method="POST" use:enhance>
-    <Form.Field {form} name="username">
-      <Form.Control let:attrs>
-        <Form.Label>Username</Form.Label>
-        <Input {...attrs} bind:value={$formData.username} />
-      </Form.Control>
-      <Form.Description>This is your public display name.</Form.Description>
-      <Form.FieldErrors />
-    </Form.Field>
-    <Form.Button>Submit</Form.Button>
-  </form>
+  import { Button } from "$lib/components/ui/button/index.js";
+  import * as Card from "$lib/components/ui/card/index.js";
+  import * as Select from "$lib/components/ui/select/index.js";
+  import { Input } from "$lib/components/ui/input/index.js";
+  import { Label } from "$lib/components/ui/label/index.js";
+  import { SOrg } from "./store";
+
+  let Org = "";
+  SOrg.subscribe((v)=>Org=v);
+
+
+</script>
+ 
+<Card.Root class="w-[350px]">
+  <Card.Header>
+    <Card.Title>Create project</Card.Title>
+    <Card.Description>Deploy your new project in one-click.</Card.Description>
+  </Card.Header>
+  <Card.Content>
+    <form>
+      <div class="grid w-full items-center gap-4">
+        <div class="flex flex-col space-y-1.5">
+          <Label for="name">Name</Label>
+          <Input id="name" placeholder="Name of your project" />
+        </div>
+        <div class="flex flex-col space-y-1.5">
+          <Label for="framework">Framework</Label>
+          <Select.Root>
+            <Select.Trigger id="framework">
+              <Select.Value placeholder="Select" />
+            </Select.Trigger>
+            <Select.Content>
+                <Select.Item value="world" label=world
+                  >World</Select.Item>
+                  <Select.Item value="{Org}" label={Org}
+                  >{Org}</Select.Item>
+            </Select.Content>
+          </Select.Root>
+        </div>
+      </div>
+    </form>
+  </Card.Content>
+  <Card.Footer class="flex justify-between">
+    <Button variant="outline">Cancel</Button>
+    <Button>Deploy</Button>
+  </Card.Footer>
+</Card.Root>

@@ -3,6 +3,7 @@
     import Badge from "$lib/components/ui/badge/badge.svelte";
     import * as Accordion from "$lib/components/ui/accordion";
     import { onMount } from "svelte";
+    import { SOrg } from "$lib/store";
     let Org = "None"
     async function Getuser() {
         const response = await fetch("/user");
@@ -12,6 +13,7 @@
         } else {
           let tmp = JSON.parse(data);
           Org = tmp.userinfo.email.split("@")[1].split(".")[0];
+          SOrg.set(Org);
         }
     }
     onMount(Getuser)

@@ -9,6 +9,7 @@
   import Sidebar from  "$lib/Sidebar.svelte";
     import Mostactivecompany from "$lib/Mostactivecompany.svelte";
     import Topratedcompany from "$lib/Topratedcompany.svelte";
+  // import Makepost from "$lib/Makepost.svelte";
 </script>
 
 <ModeWatcher />
@@ -16,6 +17,7 @@
   <Sidebar/>
   <div class=" bg-slate-800 bg-opacity-45 p-10 w-[60%] gap-10 rounded-sm flex flex-col content-start items-center self-start">
     <Search />
+    <!-- <Makepost /> -->
     <Postpage />
   </div>
   <div class="bg-background h-[100svh] w-[20%] flex flex-col justify-center items-center m-2">
