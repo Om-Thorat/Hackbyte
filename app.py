@@ -10,6 +10,7 @@ from pymongo.mongo_client import MongoClient
 from dotenv import find_dotenv, load_dotenv
 from os import environ as env
 from bson import json_util
+import certifi
 
 from Db.Posts import getPosts
 from Db.Organisations import getOrganisations
@@ -38,7 +39,7 @@ oauth.register(
 
 uri = env.get('MONGO_URI');
 print(uri)
-client = MongoClient(uri);
+client = MongoClient(uri, tlsCAFile=certifi.where())
 
 # To expose the main page
 @app.route('/')
