@@ -16,9 +16,14 @@
 </script>
 
 <!-- <Navbar /> -->
-<div class="w-[45svw] h-[80svh] overflow-y-scroll overflow-hidden flex justify-start gap-3 flex-col">
+<div class="w-[45svw] h-[80svh] overflow-y-scroll overflow-hidden flex justify-start gap-3 flex-col noScroll">
     {#each posts as post}
-        <Postcard {post} />
         <Postcard {post} />
     {/each}
 </div>
+
+<style>
+    .noScroll{
+      scrollbar-width: 0px;
+    }
+</style>

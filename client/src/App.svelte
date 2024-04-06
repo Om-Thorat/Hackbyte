@@ -12,7 +12,7 @@
 </script>
 
 <ModeWatcher />
-<div class="h-[100svh] w-[100svw] bg-background flex items-center justify-center gap-5 ml-5">
+<div class="h-[100svh] w-[100svw] bg-background flex items-center justify-center gap-5">
   <Sidebar/>
   <div class=" bg-slate-800 bg-opacity-45 p-10 w-[60%] gap-10 rounded-sm flex flex-col content-start items-center self-start">
     <Search />

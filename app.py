@@ -41,15 +41,17 @@ uri = env.get('MONGO_URI');
 print(uri)
 client = MongoClient(uri, tlsCAFile=certifi.where())
 
+
 # To expose the main page
 @app.route('/')
 def root():
     # test_db(client)
     return send_from_directory('./client/dist', 'index.html')
 
+
 @app.route('/posts')
 def posts():
-    posts = getPosts(client.hackdb)
+    posts = getPosts(client.hackdb,session.get('user'))
     return json.loads(json_util.dumps(posts))
 
 @app.route('/AllOrganisations')
