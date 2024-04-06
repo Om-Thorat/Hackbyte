@@ -14,6 +14,7 @@
   let Lstate = "Home"
   import {state} from "$lib/store";
   import Postinfo from "$lib/Postinfo.svelte";
+    import Sideresponsive from "$lib/Sideresponsive.svelte";
 
   state.subscribe((e)=>{Lstate=e});
 </script>
@@ -21,7 +22,8 @@
 <ModeWatcher />
 <div class="h-[100svh] w-[100svw] bg-background flex items-center justify-center gap-5">
   <Sidebar/>
-  <div class=" bg-slate-800 bg-opacity-45 p-10 w-[60%] gap-10 rounded-sm flex flex-col content-start items-center self-start">
+  <div class=" bg-slate-800  bg-opacity-45 p-10 w-[60%] gap-10 rounded-sm flex flex-col content-start items-center self-start">
+    <Sideresponsive />
     <Search />
     {#if Lstate === "Home"}
       <Postpage />
@@ -36,4 +38,3 @@
     <Topratedcompany />
   </div>
 </div>
-<Review /> 
