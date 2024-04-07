@@ -12,8 +12,8 @@ from os import environ as env
 from bson import json_util
 import certifi
 
-from Db.Posts import getPosts,InsertPost,searchPost
-from Db.Organisations import getOrganisations
+from Db.Posts import getPosts,InsertPost,searchPost,getOrgPosts,getOrgPublic
+from Db.Organisations import getOrganisations,getOrg
 from Db.User import InsertUser
 from Db.Ai import getKeywords,getsimilarCompanies,getsimilarTags
 from flask import request
@@ -94,6 +94,22 @@ def addpost():
     
     return "Post added successfully"
 
+@app.route("/OrgPosts")
+def OrgPosts():
+    posts = getOrgPosts(client.hackdb,session.get('user'))
+    return json.loads(json_util.dumps(posts))
+
+@app.route("/orgdata")
+def getorgdata():
+    org = request.args.get("org")
+    org = getOrg(client.hackdb,org)
+    return json.loads(json_util.dumps(org))
+
+@app.route("/getorgposts")
+def getorgposts():
+    org = request.args.get("org")
+    posts = getOrgPublic(client.hackdb,org)
+    return json.loads(json_util.dumps(posts))
 
 @app.route("/logout")
 def logout():

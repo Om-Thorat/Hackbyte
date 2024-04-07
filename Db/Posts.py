@@ -22,9 +22,17 @@ def getOrgPosts(db,user):
     coll = db.Posts
     posts = []
     for i in coll.aggregate([
-        { "$match": { "type": org } },
+        { "$match": { "type": user['userinfo']['email'].split('@')[1].split('.')[0] } },
         { "$sort": { "likes": -1 } }
     ]):
+        posts.append(i)
+    return posts
+
+def getOrgPublic(db,org):
+    coll = db.Posts
+    posts = []
+    print(org)
+    for i in coll.find({ "type": "world", "organisation": org}):
         posts.append(i)
     return posts
 

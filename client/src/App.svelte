@@ -46,11 +46,11 @@
     <Separator class="bg-slate-300" />
     <div class="flex flex-col gap-12 items-center">
     <div class="hometab h-8 rounded flex items-center">
-      <Button variant="outline" href="/" class="rounded-full border-cyan-50 border-2 p-6 text-xl font-bold text-center" on:click={() => state.set("Home")}>
+      <Button variant="outline" on:click={()=>state.set("Home")} class="rounded-full border-cyan-50 border-2 p-6 text-xl font-bold text-center" on:click={() => state.set("Home")}>
       Home</Button>
     </div>
     <div class="hometab h-8 text-center rounded">
-      <Button variant="outline" href="/" class="rounded-full border-cyan-50 border-2 p-6 font-bold text-xl text-center">{Org.toUpperCase()}™</Button>
+      <Button variant="outline" on:click={()=>state.set("orgpost")} class="rounded-full border-cyan-50 border-2 p-6 font-bold text-xl text-center">{Org.toUpperCase()}™</Button>
     </div>
     <div class="hometab h-8 text-center rounded">
       <Button
@@ -106,11 +106,15 @@
     <Sideresponsive />
     <Search />
     {#if Lstate === "Home"}
-      <Postpage />
+      <Postpage furl="/posts" />
+    {:else if Lstate === "orgpost"}
+      <Postpage furl="/OrgPosts" />
     {:else if Lstate === "seepost"}
       <Postinfo />
     {:else if Lstate === "post"}
         <Makepost />
+    {:else if Lstate === "review"}
+        <Review />
     {/if}
   </div>
   <div class="bg-background hidden md:flex h-[100svh] w-[20%] flex flex-col justify-center items-center m-2">

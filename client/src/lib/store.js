@@ -5,3 +5,5 @@ export const SOrg = writable("None");
 export const state = writable("Home");
 
 export const Post = writable({});
+
+export const Forg = writable({});

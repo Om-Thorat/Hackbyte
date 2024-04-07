@@ -2,10 +2,10 @@
     import Postcard from "./Postcard.svelte";
     import { Post,state } from "./store";
     let posts = [];
-
+    export let furl;
     async function fetchPosts() {
         try {
-            const response = await fetch('/posts');
+            const response = await fetch(furl);
             posts = await response.json();
         } catch (error) {
             console.error('Error fetching posts:', error);

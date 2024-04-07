@@ -37,7 +37,7 @@
     
     </div>
     <div class="hometab h-8 text-center rounded">
-      <Button variant="outline" href="/" class="rounded-full border-cyan-50 border-2 p-6 font-bold text-xl text-center">{Org.toUpperCase()}™</Button>
+      <Button variant="outline" on:click={()=>state.set("orgpost")} class="rounded-full border-cyan-50 border-2 p-6 font-bold text-xl text-center">{Org.toUpperCase()}™</Button>
     </div>
     <div class="hometab h-8 text-center rounded">
       <Button
